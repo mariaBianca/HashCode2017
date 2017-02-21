@@ -2,6 +2,7 @@ package pizza;
 /**
  * @author Team QuoBono
  * HashCode 2017: Pizza problem
+ * Class representing the main. 
  **/
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -49,6 +50,9 @@ public class Pizza {
 			    default : 
 			    	break;
 			    }
+			    
+			    //cut a slice from the pizza
+			    cut_a_slice(l,h);
 			}
 
 			in.close();  
@@ -60,5 +64,12 @@ public class Pizza {
 		//System.out.println("c: " + c);
 		//System.out.println("l: " + l);
 		//System.out.println("h: " + h);
+	}
+	
+	public static void cut_a_slice(int l, int h){
+		
+		PizzaSlice pizzaSlice = new PizzaSlice(h, h, h, h);
+		
+		
 	}
 }
