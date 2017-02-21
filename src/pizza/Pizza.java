@@ -18,8 +18,8 @@ public class Pizza {
 			in = new Scanner(new File("files/small.in"));
 
 			while (in.hasNext()) { 
-			    String line = in.nextLine();
-			    System.out.println(line);
+			    String line = in.next();
+			   // System.out.println(line);
 			}
 
 			in.close();  
