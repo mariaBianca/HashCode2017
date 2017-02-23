@@ -25,7 +25,7 @@ public class Main {
 		String big = "files/big.in";
 		
 		build_pizza(small);
-		System.out.println(pizza_filler(currentX, currentY));
+		System.out.println(pizza_filler());
 		
 		
 	}
@@ -35,35 +35,91 @@ public class Main {
 	 * Pizza-filler.
 	 * @return sliceAmmount
 	 * */
-	public static int pizza_filler(int x; int y){
+	public static int pizza_filler(){
 
-		int sliceAmmount = 0;
-		int currentTomato;
-		int currentMushroom;
 		
-		if (x >= 0 && x < r && y >= 0 && y < c){
-			;
-			
-		}
-		currentRow = 0;
-		currentColumn = 0;
+		int currentMushroom = 0;
+		int currentTomato = 0;
+		int countSlice=0;
+		int max = h/2;
+		int iMax = 2;
 		
+		int rubbish = 0;
 		/*Check the topping in order to create a slice */
-		while(currentTomato < max && currentMushroom < max){
-			for(int i = 0 ; i<currentRow;i++){
-				if(pizza[currentRow][currentColumn] == "M"){
-					currentMushroom++;
-				}
-				else if (pizza[currentRow][currentColumn] == "T"){
-					currentTomato++;
-				}
+		System.out.println("-----------------------");
+		
+		for (int i = 0; i < c; i++){
+			for (int j = 0 ; j < r; j++){
+				System.out.print(pizza[j][i]);
+			}
+			System.out.println();
 		}
 		
+		System.out.println("-----------------------");
+		
+		while(max < c){
+
+		while(iMax <=r){
+			//Check each rectangular of (0, h/2) 
+			for (int i = 0; i < iMax; i++){
+				for (int j = 0; j < max; j++){
+					if (pizza[i][j] == 'M'){
+						currentMushroom++;
+						System.out.println("Mushroom!!");
+					}
+					else if(pizza[i][j] == 'T'){
+						currentTomato++;
+						rubbish++;
+						System.out.println("Tomato!!" + rubbish);
+					}
+				}
+			}
+			if(currentMushroom >= l && currentTomato >= l){
+				countSlice++;
+				//System.out.println(currentTomato);
+				//System.out.println(currentMushroom);
+				currentMushroom = 0;
+				currentTomato = 0;
+			}else{
+				//System.out.println(currentTomato);
+				//System.out.println(currentMushroom);
+				//System.out.println(l);
+				currentMushroom = 0;
+				currentTomato = 0;
+			}
+			iMax+=2;
+		}
 			
+		max = max+max;
+		iMax = 2;
 		}
 		
+
 		
-		return sliceAmmount;
+		
+		
+		
+		
+		
+		
+		
+
+//		while(currentRow <= r){
+//			
+//			while(count <= max){
+//				if(pizza[count][currentRow]=='M'){
+//					currentMushroom++;
+//				}else{
+//					currentTomato++;
+//				}
+//			}
+//			currentRow++;
+//				}
+//			
+		
+		
+		
+		return countSlice;
 	}
 	
 	
@@ -113,9 +169,9 @@ public class Main {
 			    	//get the whole next row
 			    	String tmp = in.next();
 			    	
-			    	for (int j =0; j < r; j++){
-			    		pizza[j][n] = tmp.charAt(j);
-			    		System.out.print(pizza[j][n]);
+			    	for (int j =0; j < r+1; j++){
+			    		pizza[n][j] = tmp.charAt(j);			    		
+			    		System.out.print(pizza[n][j]);
 			    	}
 			    	System.out.println();
 			    }
