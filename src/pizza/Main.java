@@ -54,28 +54,21 @@ public class Main {
 			    	break;
 			    }
 			}
-			while(in.hasNextLine()){
+			
+			int n=0;
+			while(in.hasNext()){
 			    //read the matrix = create the pizza
-			    for (int n= 0; n < c; n++){
-			    	//get the whole row
-			    	if(!in.next().isEmpty()){
 			    
+			    	//get the whole next row
 			    	String tmp = in.next();
 			    	
 			    	for (int j =0; j < r; j++){
-			    		
-			    		
-			    			
-			    		
 			    		pizza[j][n] = tmp.charAt(j);
 			    		System.out.print(pizza[j][n]);
-			    		
 			    	}
 			    	System.out.println();
 			    }
-			}
-			    
-
+			
 			in.close();  
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
