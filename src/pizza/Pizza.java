@@ -8,12 +8,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Pizza {
+public class Main {
 
 	static int r = 0;
 	static int c = 0;
 	static int l = 0;
 	static int h = 0;
+	static char topping;
+	static char[][] pizza = new char[7][6];
 	
 	public static void main(String args[]) {
 		
@@ -28,7 +30,8 @@ public class Pizza {
 
 			//store the values that the row, column, least number of items and, heighest number of items
 			//on the pizza
-			while (in.hasNext()) { 
+			while (in.hasNextInt()) { 
+				int tmp = in.nextInt();
 			    String line = in.next();
 			    switch(i){
 			    case 0 : 
@@ -50,25 +53,40 @@ public class Pizza {
 			    default : 
 			    	break;
 			    }
-			    
-			    //cut a slice from the pizza
-			    cut_a_slice(l,h);
 			}
+			while(in.hasNextLine()){
+			    //read the matrix = create the pizza
+			    for (int n= 0; n < c; n++){
+			    	//get the whole row
+			    	if(!in.next().isEmpty()){
+			    
+			    	String tmp = in.next();
+			    	
+			    	for (int j =0; j < r; j++){
+			    		
+			    		
+			    			
+			    		
+			    		pizza[j][n] = tmp.charAt(j);
+			    		System.out.print(pizza[j][n]);
+			    		
+			    	}
+			    	System.out.println();
+			    }
+			}
+			    
 
 			in.close();  
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
-		//System.out.println("r: " + r);
-		//System.out.println("c: " + c);
-		//System.out.println("l: " + l);
-		//System.out.println("h: " + h);
 	}
 	
+	
+	//cut a slice
 	public static void cut_a_slice(int l, int h){
 		
-		PizzaSlice pizzaSlice = new PizzaSlice(h, h, h, h);
+		PizzaCell pizzaSlice = new PizzaCell(h, h, h, h, topping);
 		
 		
 	}
