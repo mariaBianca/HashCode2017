@@ -25,7 +25,7 @@ public class Main {
 		String big = "files/big.in";
 		
 		build_pizza(small);
-		System.out.println(pizza_filler());
+		System.out.println(pizza_filler(currentX, currentY));
 		
 		
 	}
@@ -35,10 +35,32 @@ public class Main {
 	 * Pizza-filler.
 	 * @return sliceAmmount
 	 * */
-	public static int pizza_filler(){
+	public static int pizza_filler(int x; int y){
 
 		int sliceAmmount = 0;
+		int currentTomato;
+		int currentMushroom;
 		
+		if (x >= 0 && x < r && y >= 0 && y < c){
+			;
+			
+		}
+		currentRow = 0;
+		currentColumn = 0;
+		
+		/*Check the topping in order to create a slice */
+		while(currentTomato < max && currentMushroom < max){
+			for(int i = 0 ; i<currentRow;i++){
+				if(pizza[currentRow][currentColumn] == "M"){
+					currentMushroom++;
+				}
+				else if (pizza[currentRow][currentColumn] == "T"){
+					currentTomato++;
+				}
+		}
+		
+			
+		}
 		
 		
 		return sliceAmmount;
@@ -46,7 +68,7 @@ public class Main {
 	
 	
 	/**
-	 * Build the pizza from given file
+	 * Build the pizza from given file.
 	 * */
 	public static void build_pizza(String file){
 		/*Scan from file*/
