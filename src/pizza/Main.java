@@ -15,24 +15,51 @@ public class Main {
 	static int l = 0;
 	static int h = 0;
 	static char topping;
-	static char[][] pizza = new char[7][6];
+	static char[][] pizza;
 	
 	public static void main(String args[]) {
 		
-		/**Scan from file*/
-		Scanner in;
+		//create the pizza
+		String small = "files/small.in";
+		String medium = "files/medium.in";
+		String big = "files/big.in";
 		
+		build_pizza(small);
+		System.out.println(pizza_filler());
+		
+		
+	}
+	
+	
+	/**
+	 * Pizza-filler.
+	 * @return sliceAmmount
+	 * */
+	public static int pizza_filler(){
+
+		int sliceAmmount = 0;
+		
+		
+		
+		return sliceAmmount;
+	}
+	
+	
+	/**
+	 * Build the pizza from given file
+	 * */
+	public static void build_pizza(String file){
+		/*Scan from file*/
+		Scanner in;
 		//variable used to go through the first 4 readings of the file (representing the numbers)
 		int i = 0;
-		
 		try {
-			in = new Scanner(new File("files/small.in"));
+			in = new Scanner(new File(file));
 
 			//store the values that the row, column, least number of items and, heighest number of items
 			//on the pizza
 			while (in.hasNextInt()) { 
-				int tmp = in.nextInt();
-			    String line = in.next();
+				String line = in.next();
 			    switch(i){
 			    case 0 : 
 			    	r = Integer.parseInt(line);
@@ -54,7 +81,9 @@ public class Main {
 			    	break;
 			    }
 			}
-			
+
+			pizza = new char[r][c];
+			/*Create pizza*/
 			int n=0;
 			while(in.hasNext()){
 			    //read the matrix = create the pizza
@@ -73,14 +102,6 @@ public class Main {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	
-	//cut a slice
-	public static void cut_a_slice(int l, int h){
-		
-		PizzaCell pizzaSlice = new PizzaCell(h, h, h, h, topping);
-		
 		
 	}
 }
